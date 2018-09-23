@@ -43,6 +43,22 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like_image" translatesAutoresizingMaskIntoConstraints="NO" id="gFW-9D-oSh">
+                                                <rect key="frame" x="25" y="25" width="158" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="hzt-v8-Txk"/>
+                                                    <constraint firstAttribute="width" constant="158" id="wuD-l6-ErG"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nope_image" translatesAutoresizingMaskIntoConstraints="NO" id="cW0-dL-pbr">
+                                                <rect key="frame" x="168" y="120" width="158" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="5we-ia-qeA"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="6QK-3A-BYw"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="158" id="jF7-jN-l0i"/>
+                                                    <constraint firstAttribute="width" constant="158" id="uRl-zv-Dnx"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -54,12 +70,18 @@
                                             <constraint firstItem="2gB-Hz-9to" firstAttribute="leading" secondItem="uRF-wZ-7J0" secondAttribute="leading" id="I0t-4K-fRD"/>
                                             <constraint firstItem="2gB-Hz-9to" firstAttribute="leading" secondItem="uRF-wZ-7J0" secondAttribute="leading" id="NkK-ul-Rg5"/>
                                             <constraint firstItem="2gB-Hz-9to" firstAttribute="top" secondItem="uRF-wZ-7J0" secondAttribute="top" id="P0Q-9o-meR"/>
+                                            <constraint firstAttribute="trailing" secondItem="cW0-dL-pbr" secondAttribute="trailing" constant="25" id="P0n-WY-3Ed"/>
+                                            <constraint firstItem="cW0-dL-pbr" firstAttribute="top" secondItem="uRF-wZ-7J0" secondAttribute="top" constant="25" id="QdB-QU-O0q"/>
                                             <constraint firstItem="2gB-Hz-9to" firstAttribute="top" secondItem="uRF-wZ-7J0" secondAttribute="top" id="TAa-UI-NOb"/>
                                             <constraint firstAttribute="bottom" secondItem="2gB-Hz-9to" secondAttribute="bottom" id="Wjl-cG-clb"/>
                                             <constraint firstAttribute="trailing" secondItem="2gB-Hz-9to" secondAttribute="trailing" id="X4x-8D-yOy"/>
                                             <constraint firstItem="2gB-Hz-9to" firstAttribute="top" secondItem="uRF-wZ-7J0" secondAttribute="top" id="Y5x-Pa-RrE"/>
+                                            <constraint firstItem="cW0-dL-pbr" firstAttribute="top" secondItem="gFW-9D-oSh" secondAttribute="bottom" constant="25" id="ZmO-p5-o3u"/>
+                                            <constraint firstItem="gFW-9D-oSh" firstAttribute="top" secondItem="uRF-wZ-7J0" secondAttribute="top" constant="25" id="aSq-ep-qut"/>
                                             <constraint firstAttribute="trailing" secondItem="dB6-fd-QqA" secondAttribute="trailing" constant="14" id="bBA-VM-767"/>
+                                            <constraint firstAttribute="trailing" secondItem="cW0-dL-pbr" secondAttribute="trailing" constant="25" id="hSZ-x2-stG"/>
                                             <constraint firstItem="2gB-Hz-9to" firstAttribute="leading" secondItem="uRF-wZ-7J0" secondAttribute="leading" id="hln-c1-het"/>
+                                            <constraint firstItem="gFW-9D-oSh" firstAttribute="leading" secondItem="uRF-wZ-7J0" secondAttribute="leading" constant="25" id="hpG-4r-aCK"/>
                                             <constraint firstAttribute="width" secondItem="uRF-wZ-7J0" secondAttribute="height" multiplier="352:503" id="tcU-N3-cdC"/>
                                             <constraint firstItem="dB6-fd-QqA" firstAttribute="top" secondItem="IBF-Fc-1jI" secondAttribute="bottom" constant="2.5" id="xLQ-zE-AAp"/>
                                             <constraint firstItem="dB6-fd-QqA" firstAttribute="leading" secondItem="uRF-wZ-7J0" secondAttribute="leading" constant="14" id="xmf-eD-jg0"/>
@@ -128,6 +150,8 @@
                     <connections>
                         <outlet property="cardView" destination="uRF-wZ-7J0" id="hjk-ha-J6M"/>
                         <outlet property="homeWrapper" destination="DIH-MD-2YK" id="c4K-TT-heN"/>
+                        <outlet property="likeImage" destination="gFW-9D-oSh" id="jZU-vI-hf3"/>
+                        <outlet property="nopeImage" destination="cW0-dL-pbr" id="bID-qm-Puq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -161,5 +185,7 @@
         <image name="Super Like" width="51" height="51"/>
         <image name="Swipe Card" width="356" height="507"/>
         <image name="crispeta" width="1080" height="1079"/>
+        <image name="like_image" width="170" height="114"/>
+        <image name="nope_image" width="197" height="130"/>
     </resources>
 </document>
