@@ -60,12 +60,28 @@ class HomeViewController: UIViewController {
         //self.view.bounds representa el rectangulo de la vista.
         self.cardView.center = CGPoint(x: self.view.bounds.width / 2 + cardPoint.x, y: self.view.bounds.height / 2 + cardPoint.y)
         
+        /********* Efecto de rotacion ************/
+        //Distancia entre el centro de la vista y el centro del cardView.
+        let xFromCenter = self.view.bounds.width / 2 - self.cardView.center.x
+        //CGAffineTransform es una matriz 3x3 de tipo estructura, usada para rotar, escalar o trasladar cualquier vista.
+        //Se divide entre 1000 para dismuniur el valor.
+        var rotate = CGAffineTransform(rotationAngle: xFromCenter / 1000)
+        
+        //min compara dos valores y retorna el menor.
+        //(100 / abs(xFromCenter) retornara un valor menor que 1, dado que la distancia minima de Like o disLike es 100.
+        let scale = min(100 / abs(xFromCenter), 1)
+        var finalTransform = rotate.scaledBy(x: scale, y: scale)
+        
+        self.cardView.transform = finalTransform
+        
         //UIGestureRecognizer.State es una enumeracion que contiene los eventos discretos y define el estado del gesto.
         //ended es cuando el evento continuo ha terminado.
         if gestureRecognizer.state == .ended {
             
             //Para saber si se movio a la izquierdad o a la derecha.
             //print(self.cardView.center.x)
+            
+            print(xFromCenter)
             
             //Si es Like o disLike...
             if self.cardView.center.x < self.view.bounds.width / 2 - 100 {
@@ -77,6 +93,17 @@ class HomeViewController: UIViewController {
                 
                 print("Like")
             }
+            
+            //Se reinicia la rotacion.
+            rotate = CGAffineTransform(rotationAngle: 0)
+            
+            //Se reinicia la transform
+            finalTransform = rotate.scaledBy(x: 1, y: 1)
+            
+            //Se actualiza el transform de la vista.
+            self.cardView.transform = finalTransform
+            
+            
             
             //Se reinicia la vista.
             //Se restan 30 puntos de la componente en y por un desfase que tenemos, cuanso se reposiciona la vista queda muy abajo.
