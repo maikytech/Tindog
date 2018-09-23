@@ -23,6 +23,9 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var cardView: UIView!            //Referencia al objeto Cards.
     @IBOutlet weak var homeWrapper: UIStackView!
+    @IBOutlet weak var likeImage: UIImageView!
+    @IBOutlet weak var nopeImage: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +43,6 @@ class HomeViewController: UIViewController {
         
         //Adjunta un Gesture Recognizer a la vista, su parametro es la variable que contiene el gesto.
         self.cardView.addGestureRecognizer(homeGR)
-        
         
     }
     
@@ -74,6 +76,17 @@ class HomeViewController: UIViewController {
         
         self.cardView.transform = finalTransform
         
+        //Si es Like o disLike...
+        if self.cardView.center.x < self.view.bounds.width / 2 - 100 {
+            
+            self.nopeImage.alpha = min(abs(xFromCenter) / 100, 1)
+        }
+        
+        if self.cardView.center.x > self.view.bounds.width / 2 + 100 {
+            
+            self.likeImage.alpha = min(abs(xFromCenter) / 100, 1)
+        }
+        
         //UIGestureRecognizer.State es una enumeracion que contiene los eventos discretos y define el estado del gesto.
         //ended es cuando el evento continuo ha terminado.
         if gestureRecognizer.state == .ended {
@@ -81,29 +94,27 @@ class HomeViewController: UIViewController {
             //Para saber si se movio a la izquierdad o a la derecha.
             //print(self.cardView.center.x)
             
-            print(xFromCenter)
-            
             //Si es Like o disLike...
-            if self.cardView.center.x < self.view.bounds.width / 2 - 100 {
-                
-                print("disLike")
-            }
+//            if self.cardView.center.x < self.view.bounds.width / 2 - 100 {
+//
+//                self.nopeImage.alpha = min(abs(xFromCenter) / 100, 1)
+//
+//                print("disLike")
+//            }
+//
+//            if self.cardView.center.x > self.view.bounds.width / 2 + 100 {
+//
+//                self.likeImage.alpha = min(abs(xFromCenter) / 100, 1)
+//                
+//                print("Like")
+//            }
             
-            if self.cardView.center.x > self.view.bounds.width / 2 + 100 {
-                
-                print("Like")
-            }
-            
-            //Se reinicia la rotacion.
+            //Condiciones iniciales.
             rotate = CGAffineTransform(rotationAngle: 0)
-            
-            //Se reinicia la transform
             finalTransform = rotate.scaledBy(x: 1, y: 1)
-            
-            //Se actualiza el transform de la vista.
             self.cardView.transform = finalTransform
-            
-            
+            self.likeImage.alpha = 0
+            self.nopeImage.alpha = 0
             
             //Se reinicia la vista.
             //Se restan 30 puntos de la componente en y por un desfase que tenemos, cuanso se reposiciona la vista queda muy abajo.
