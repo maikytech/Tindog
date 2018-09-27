@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import RevealingSplashView          //Libreria para la configuracion del LaunchScreen con RevelingSplashView.
 
 //Se crea esta clase para configurar la imagen del titulo.
 class NavigationImageView: UIImageView {
     
-    //sizeThatFits solicita la vista para poder calcular el tamaño que mejor se adapta a ella.
+    //sizeThatFits solicita la vista para poder calcular el tamaño que mejor se adapta a ella, su implementacion es por default.
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         
         return CGSize(width: 76, height: 39)     // 76 y 39 son las medidas del icono en Sketch.
@@ -21,19 +22,30 @@ class NavigationImageView: UIImageView {
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var cardView: UIView!            //Referencia al objeto Cards.
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var homeWrapper: UIStackView!
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var nopeImage: UIImageView!
     
+    //Varible para crear el efecto del Launchscreen.
+    let revelingSplashView = RevealingSplashView(iconImage: UIImage(named: "splash_icon")!, iconInitialSize: CGSize(width: 80, height: 80), backgroundColor: UIColor.white)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //LaunchScreen
+        self.view.addSubview(revelingSplashView)
+        self.revelingSplashView.animationType = SplashAnimationType.popAndZoomOut
+        self.revelingSplashView.startAnimation()
+        
 
         //Imagen del titulo
         let tittleView = NavigationImageView()          //Objeto de la clase NavigationImageView.
         tittleView.image = UIImage(named: "Actions")    //Inicializamos la imagen.
-        self.navigationItem.titleView = tittleView      //Agregamos la imagen al Navigation bar
+        self.navigationItem.titleView = tittleView      //Agregamos la imagen al Navigation bar en el centro.
+        
+        
+        //Configuracion del gesto de deslizar la imagen.
         
         //UIPanGestureRecognizer es una clase para el manejo de gestos en la pantalla.
         //self significa que el target sera todo el objeto Cards.
@@ -46,7 +58,7 @@ class HomeViewController: UIViewController {
         
     }
     
-    //cardDragged es la funcion que configura las acciones del gesto en pantalla.
+    //Funcion que configura las acciones del gesto en pantalla.
     //@objc es una directiva del compilador, que debe ser utlizada cuando se utlizan clases, protocolos o directivas heredadas de Objective-C, como #selector por ejemplo.
     @objc func cardDragged(gestureRecognizer: UIPanGestureRecognizer) {
         
@@ -62,9 +74,10 @@ class HomeViewController: UIViewController {
         //self.view.bounds representa el rectangulo de la vista.
         self.cardView.center = CGPoint(x: self.view.bounds.width / 2 + cardPoint.x, y: self.view.bounds.height / 2 + cardPoint.y)
         
-        /********* Efecto de rotacion ************/
+        //Efecto de rotacion.
         //Distancia entre el centro de la vista y el centro del cardView.
         let xFromCenter = self.view.bounds.width / 2 - self.cardView.center.x
+        
         //CGAffineTransform es una matriz 3x3 de tipo estructura, usada para rotar, escalar o trasladar cualquier vista.
         //Se divide entre 1000 para dismuniur el valor.
         var rotate = CGAffineTransform(rotationAngle: xFromCenter / 1000)
@@ -87,8 +100,8 @@ class HomeViewController: UIViewController {
             self.likeImage.alpha = min(abs(xFromCenter) / 100, 1)
         }
         
+        //Configuracion cuando el evento ha terminado.
         //UIGestureRecognizer.State es una enumeracion que contiene los eventos discretos y define el estado del gesto.
-        //ended es cuando el evento continuo ha terminado.
         if gestureRecognizer.state == .ended {
             
             //Para saber si se movio a la izquierdad o a la derecha.
@@ -117,7 +130,7 @@ class HomeViewController: UIViewController {
             self.nopeImage.alpha = 0
             
             //Se reinicia la vista.
-            //Se restan 30 puntos de la componente en y por un desfase que tenemos, cuanso se reposiciona la vista queda muy abajo.
+            //Se restan 30 puntos de la componente en y por un desfase que tenemos, cuando se reposiciona la vista queda muy abajo.
             self.cardView.center = CGPoint(x: self.homeWrapper.bounds.width / 2, y: self.homeWrapper.bounds.height / 2 - 30)
         }
         
