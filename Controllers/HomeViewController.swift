@@ -17,7 +17,6 @@ class NavigationImageView: UIImageView {
         
         return CGSize(width: 76, height: 39)     // 76 y 39 son las medidas del icono en Sketch.
     }
-    
 }
 
 class HomeViewController: UIViewController {
@@ -55,6 +54,30 @@ class HomeViewController: UIViewController {
         
         //Adjunta un Gesture Recognizer a la vista, su parametro es la variable que contiene el gesto.
         self.cardView.addGestureRecognizer(homeGR)
+        
+        
+        //Creacion del boton de Login y asociacion del evento modal.
+        
+        let leftBtn = UIButton(type: .custom)
+        leftBtn.setImage(UIImage(named: "login"), for: .normal)
+        leftBtn.imageView?.contentMode = .scaleAspectFit
+        leftBtn.addTarget(self, action: #selector(goToLogin(sender:)), for: .touchUpInside)
+        
+        //Creacion del Button Item para poder agregarlo al Navigation Bar.
+        
+        let leftBarButton = UIBarButtonItem(customView: leftBtn)
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        
+    }
+    
+    @objc func goToLogin(sender: UIButton) {
+        
+        //Referencia al Main.storyboard
+        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        //LoginVC es el ID de la vista de login.
+        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "loginVC")
+        present(loginViewController, animated: true, completion: nil)
         
     }
     
@@ -135,21 +158,4 @@ class HomeViewController: UIViewController {
         }
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
