@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C0DA9DD479B11F96CBDE725 /* Pods_Tindog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB358DDC04CA8B3C2E990996 /* Pods_Tindog.framework */; };
 		653C4A0B215526500071F717 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653C4A0A215526500071F717 /* HomeViewController.swift */; };
+		657DC04E2162FA2300B254A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DC04D2162FA2300B254A7 /* LoginViewController.swift */; };
 		65C5EC8221533135006A0F42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5EC8121533135006A0F42 /* AppDelegate.swift */; };
 		65C5EC8721533135006A0F42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C5EC8521533135006A0F42 /* Main.storyboard */; };
 		65C5EC8921533136006A0F42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65C5EC8821533136006A0F42 /* Assets.xcassets */; };
@@ -17,7 +18,8 @@
 
 /* Begin PBXFileReference section */
 		550E064E9803ADAFADC41604 /* Pods-Tindog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tindog.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tindog/Pods-Tindog.release.xcconfig"; sourceTree = "<group>"; };
-		653C4A0A215526500071F717 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
+		653C4A0A215526500071F717 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		657DC04D2162FA2300B254A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		65C5EC7E21533135006A0F42 /* Tindog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tindog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C5EC8121533135006A0F42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65C5EC8621533135006A0F42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		653C4A0921549F210071F717 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				653C4A0A215526500071F717 /* HomeViewController.swift */,
+				657DC04D2162FA2300B254A7 /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -58,7 +62,6 @@
 		65C5EC7521533134006A0F42 = {
 			isa = PBXGroup;
 			children = (
-				653C4A0A215526500071F717 /* HomeViewController.swift */,
 				653C4A0921549F210071F717 /* Controllers */,
 				65C5EC8021533135006A0F42 /* Tindog */,
 				65C5EC7F21533135006A0F42 /* Products */,
@@ -108,6 +111,7 @@
 				65C5EC7B21533134006A0F42 /* Frameworks */,
 				65C5EC7C21533134006A0F42 /* Resources */,
 				F433DA28F9B7BEFB129095F4 /* [CP] Embed Pods Frameworks */,
+				65DA4C442167CE8C002164FA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -130,6 +134,11 @@
 				TargetAttributes = {
 					65C5EC7D21533134006A0F42 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -183,6 +192,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		65DA4C442167CE8C002164FA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
 		F433DA28F9B7BEFB129095F4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				657DC04E2162FA2300B254A7 /* LoginViewController.swift in Sources */,
 				65C5EC8221533135006A0F42 /* AppDelegate.swift in Sources */,
 				653C4A0B215526500071F717 /* HomeViewController.swift in Sources */,
 			);
