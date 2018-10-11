@@ -261,10 +261,23 @@
                                     <constraint firstAttribute="width" constant="275" id="Zex-R0-sz0"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39O-8A-ecF">
+                                <rect key="frame" x="15" y="30" width="23" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="2jc-CI-zwa"/>
+                                    <constraint firstAttribute="height" constant="23" id="XPe-nl-8as"/>
+                                </constraints>
+                                <state key="normal" image="close_modal"/>
+                                <connections>
+                                    <action selector="closeBtn:" destination="Bpl-NZ-TBB" eventType="touchUpInside" id="ovR-te-ozh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="39O-8A-ecF" firstAttribute="leading" secondItem="4ci-ji-CdN" secondAttribute="leading" constant="15" id="JbY-2X-ve2"/>
                             <constraint firstItem="FGW-my-SK0" firstAttribute="centerX" secondItem="1dt-xN-ais" secondAttribute="centerX" id="bEf-Go-wpx"/>
+                            <constraint firstItem="39O-8A-ecF" firstAttribute="top" secondItem="4ci-ji-CdN" secondAttribute="top" constant="10" id="g8L-sX-kc5"/>
                             <constraint firstItem="FGW-my-SK0" firstAttribute="centerY" secondItem="1dt-xN-ais" secondAttribute="centerY" id="y6X-9l-N74"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4ci-ji-CdN"/>
@@ -300,6 +313,7 @@
         <image name="Rewind" width="51" height="51"/>
         <image name="Super Like" width="51" height="51"/>
         <image name="Swipe Card" width="356" height="507"/>
+        <image name="close_modal" width="23" height="23"/>
         <image name="crispeta" width="1080" height="1079"/>
         <image name="like_image" width="170" height="114"/>
         <image name="login_btn_bg" width="256" height="65"/>
