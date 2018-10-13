@@ -22,16 +22,23 @@ class LoginViewController: UIViewController {
 
         self.view.bindKeyboard()    //Activa la animacion de subir la vista unos frames mientras el teclado este presente.
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
-        self.view.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+//        self.view.addGestureRecognizer(tap)
+        
     }
     
-    @objc func handleTap(sender: UITapGestureRecognizer) {
-        
-        //endEditing cancela cualquier edicion que tengamos sobre la vista ¿??
-        self.view.endEditing(true)
-        
+    //Metodo alternativo.
+    //touchesBegan detecta si se produce un toque en la pantalla.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    self.view.endEditing(true);
     }
+    
+//    @objc func handleTap(sender: UITapGestureRecognizer) {
+//
+//        //endEditing cancela cualquier edicion que tengamos sobre la vista ¿??
+//        self.view.endEditing(true)
+//
+//    }
 }
 
 

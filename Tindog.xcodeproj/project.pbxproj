@@ -11,6 +11,7 @@
 		653C4A0B215526500071F717 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653C4A0A215526500071F717 /* HomeViewController.swift */; };
 		657DC04E2162FA2300B254A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DC04D2162FA2300B254A7 /* LoginViewController.swift */; };
 		65869F3E216EC42D00C5F274 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65869F3D216EC42D00C5F274 /* UIViewExt.swift */; };
+		65869F40216F036C00C5F274 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65869F3F216F036C00C5F274 /* GoogleService-Info.plist */; };
 		65C5EC8221533135006A0F42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5EC8121533135006A0F42 /* AppDelegate.swift */; };
 		65C5EC8721533135006A0F42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C5EC8521533135006A0F42 /* Main.storyboard */; };
 		65C5EC8921533136006A0F42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65C5EC8821533136006A0F42 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		653C4A0A215526500071F717 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		657DC04D2162FA2300B254A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		65869F3D216EC42D00C5F274 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		65869F3F216F036C00C5F274 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		65C5EC7E21533135006A0F42 /* Tindog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tindog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C5EC8121533135006A0F42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65C5EC8621533135006A0F42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				65C5EC8821533136006A0F42 /* Assets.xcassets */,
 				65C5EC8A21533136006A0F42 /* LaunchScreen.storyboard */,
 				65C5EC8D21533136006A0F42 /* Info.plist */,
+				65869F3F216F036C00C5F274 /* GoogleService-Info.plist */,
 			);
 			path = Tindog;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C5EC8C21533136006A0F42 /* LaunchScreen.storyboard in Resources */,
+				65869F40216F036C00C5F274 /* GoogleService-Info.plist in Resources */,
 				65C5EC8921533136006A0F42 /* Assets.xcassets in Resources */,
 				65C5EC8721533135006A0F42 /* Main.storyboard in Resources */,
 			);
@@ -223,11 +227,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Tindog/Pods-Tindog-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -392,10 +404,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YR8ENK43BV;
 				INFOPLIST_FILE = Tindog/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PosetoStudio.Tindog.Tindog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -411,10 +420,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YR8ENK43BV;
 				INFOPLIST_FILE = Tindog/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PosetoStudio.Tindog.Tindog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
