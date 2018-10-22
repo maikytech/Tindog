@@ -7,12 +7,13 @@
 //
 
 import UIKit
-import RevealingSplashView          //Libreria para la configuracion del LaunchScreen con RevelingSplashView.
+import RevealingSplashView          //Libreria para la configuracion del LaunchScreen tipo twitter.
+import Firebase
 
 //Se crea esta clase para configurar la imagen del titulo.
 class NavigationImageView: UIImageView {
     
-    //sizeThatFits solicita la vista para poder calcular el tamaño que mejor se adapta a ella, su implementacion es por default.
+    //sizeThatFits pregunta a la vista para poder calcular el tamaño que mejor se adapta a ella, su implementacion es por default.
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         
         return CGSize(width: 76, height: 39)     // 76 y 39 son las medidas del icono en Sketch.
@@ -26,7 +27,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var nopeImage: UIImageView!
     
-    //Varible para crear el efecto del Launchscreen.
+    let leftBtn = UIButton(type: .custom)       //Boton de acceso al area de Login
+    
+    //Varible para crear el efecto del Launchscreen tipo twitter.
     let revelingSplashView = RevealingSplashView(iconImage: UIImage(named: "splash_icon")!, iconInitialSize: CGSize(width: 80, height: 80), backgroundColor: UIColor.white)
     
     override func viewDidLoad() {
@@ -56,17 +59,30 @@ class HomeViewController: UIViewController {
         self.cardView.addGestureRecognizer(homeGR)
         
         
-        //Creacion del boton de Login y asociacion del evento modal.
-        
-        let leftBtn = UIButton(type: .custom)
-        leftBtn.setImage(UIImage(named: "login"), for: .normal)
-        leftBtn.imageView?.contentMode = .scaleAspectFit
-        leftBtn.addTarget(self, action: #selector(goToLogin(sender:)), for: .touchUpInside)
+        //Boton de Login y asociacion del evento modal.
+        self.leftBtn.imageView?.contentMode = .scaleAspectFit
         
         //Creacion del Button Item para poder agregarlo al Navigation Bar.
-        
-        let leftBarButton = UIBarButtonItem(customView: leftBtn)
+        let leftBarButton = UIBarButtonItem(customView: self.leftBtn)
         self.navigationItem.leftBarButtonItem = leftBarButton
+        
+    }
+    
+    //Funcion de configuracion cuando esta vista vuelve a ser la vista principal.
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if Auth.auth().currentUser != nil {
+            
+            //Boton de login en rojo.
+            self.leftBtn.setImage(UIImage(named: "login_active"), for: .normal)
+            self.leftBtn.addTarget(self, action: #selector(goToLogin(sender:)), for: .touchUpInside)
+            
+        }else {
+            
+            //Boton de login en gris.
+            self.leftBtn.setImage(UIImage(named: "login"), for: .normal)
+            self.leftBtn.addTarget(self, action: #selector(goToLogin(sender:)), for: .touchUpInside)
+        }
         
     }
     
@@ -156,6 +172,5 @@ class HomeViewController: UIViewController {
             //Se restan 30 puntos de la componente en y por un desfase que tenemos, cuando se reposiciona la vista queda muy abajo.
             self.cardView.center = CGPoint(x: self.homeWrapper.bounds.width / 2, y: self.homeWrapper.bounds.height / 2 - 30)
         }
-        
     }
 }
