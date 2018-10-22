@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C0DA9DD479B11F96CBDE725 /* Pods_Tindog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB358DDC04CA8B3C2E990996 /* Pods_Tindog.framework */; };
+		6538C55F2173E32E00B8859D /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6538C55E2173E32E00B8859D /* DataBaseService.swift */; };
 		653C4A0B215526500071F717 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653C4A0A215526500071F717 /* HomeViewController.swift */; };
 		657DC04E2162FA2300B254A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DC04D2162FA2300B254A7 /* LoginViewController.swift */; };
 		65869F3E216EC42D00C5F274 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65869F3D216EC42D00C5F274 /* UIViewExt.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		550E064E9803ADAFADC41604 /* Pods-Tindog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tindog.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tindog/Pods-Tindog.release.xcconfig"; sourceTree = "<group>"; };
+		6538C55E2173E32E00B8859D /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		653C4A0A215526500071F717 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		657DC04D2162FA2300B254A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		65869F3D216EC42D00C5F274 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6538C55D2173E31600B8859D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6538C55E2173E32E00B8859D /* DataBaseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		653C4A0921549F210071F717 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 		65C5EC7521533134006A0F42 = {
 			isa = PBXGroup;
 			children = (
+				6538C55D2173E31600B8859D /* Services */,
 				65869F3C216EC3DF00C5F274 /* Extensions */,
 				653C4A0921549F210071F717 /* Controllers */,
 				65C5EC8021533135006A0F42 /* Tindog */,
@@ -256,6 +267,7 @@
 				65869F3E216EC42D00C5F274 /* UIViewExt.swift in Sources */,
 				657DC04E2162FA2300B254A7 /* LoginViewController.swift in Sources */,
 				65C5EC8221533135006A0F42 /* AppDelegate.swift in Sources */,
+				6538C55F2173E32E00B8859D /* DataBaseService.swift in Sources */,
 				653C4A0B215526500071F717 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,7 +416,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YR8ENK43BV;
 				INFOPLIST_FILE = Tindog/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.PosetoStudio.Tindog.Tindog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -420,7 +435,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YR8ENK43BV;
 				INFOPLIST_FILE = Tindog/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.PosetoStudio.Tindog.Tindog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
