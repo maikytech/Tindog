@@ -30,24 +30,40 @@ class HomeViewController: UIViewController {
     let leftBtn = UIButton(type: .custom)       //Boton de acceso al area de Login
     
     //Varible para crear el efecto del Launchscreen tipo twitter.
-    let revelingSplashView = RevealingSplashView(iconImage: UIImage(named: "splash_icon")!, iconInitialSize: CGSize(width: 80, height: 80), backgroundColor: UIColor.white)
+    let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "splash_icon")!, iconInitialSize: CGSize(width: 80, height: 80), backgroundColor: UIColor.white)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //LaunchScreen
-        self.view.addSubview(revelingSplashView)
-        self.revelingSplashView.animationType = SplashAnimationType.popAndZoomOut
-        self.revelingSplashView.startAnimation()
+        self.launchScreenConfig(revealingSplashView: revealingSplashView)
+        self.tittleViewConfig()
+        self.UIGestureConfig()
+        self.buttonLoginConfig(leftBtn: leftBtn)
+    }
+    
+    //Funcion de configuracion cuando esta vista vuelve a ser la vista principal.
+    override func viewDidAppear(_ animated: Bool) {
         
-
-        //Imagen del titulo
-        let tittleView = NavigationImageView()          //Objeto de la clase NavigationImageView.
+        loginModalViewConfig(leftBtn: leftBtn)
+    }
+    
+    func launchScreenConfig(revealingSplashView: RevealingSplashView) {
+        
+        self.view.addSubview(revealingSplashView)
+        self.revealingSplashView.animationType = SplashAnimationType.popAndZoomOut
+        self.revealingSplashView.startAnimation()
+    }
+    
+    //Manual creation of the tittle image of app.
+    func tittleViewConfig() {
+        
+        let tittleView = NavigationImageView()
         tittleView.image = UIImage(named: "Actions")    //Inicializamos la imagen.
         self.navigationItem.titleView = tittleView      //Agregamos la imagen al Navigation bar en el centro.
-        
-        
-        //Configuracion del gesto de deslizar la imagen.
+    }
+    
+    //Configuration of the gesture of sliding the image
+    func UIGestureConfig() {
         
         //UIPanGestureRecognizer es una clase para el manejo de gestos en la pantalla.
         //self significa que el target sera todo el objeto Cards.
@@ -57,7 +73,10 @@ class HomeViewController: UIViewController {
         
         //Adjunta un Gesture Recognizer a la vista, su parametro es la variable que contiene el gesto.
         self.cardView.addGestureRecognizer(homeGR)
-        
+    }
+    
+    //Manual creation of Login button
+    func buttonLoginConfig(leftBtn: UIButton) {
         
         //Boton de Login y asociacion del evento modal.
         self.leftBtn.imageView?.contentMode = .scaleAspectFit
@@ -65,11 +84,9 @@ class HomeViewController: UIViewController {
         //Creacion del Button Item para poder agregarlo al Navigation Bar.
         let leftBarButton = UIBarButtonItem(customView: self.leftBtn)
         self.navigationItem.leftBarButtonItem = leftBarButton
-        
     }
     
-    //Funcion de configuracion cuando esta vista vuelve a ser la vista principal.
-    override func viewDidAppear(_ animated: Bool) {
+    func loginModalViewConfig(leftBtn: UIButton) {
         
         if Auth.auth().currentUser != nil {
             
@@ -83,18 +100,18 @@ class HomeViewController: UIViewController {
             self.leftBtn.setImage(UIImage(named: "login"), for: .normal)
             self.leftBtn.addTarget(self, action: #selector(goToLogin(sender:)), for: .touchUpInside)
         }
-        
     }
     
+    //Configuration of Modal view of Login.
     @objc func goToLogin(sender: UIButton) {
         
         //Referencia al Main.storyboard
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
-        //LoginVC es el ID de la vista de login.
+        //instantiateViewController instancia la vista cuyo identificador es loginVC y lo presenta modalmente.
+        //LoginVC es el ID del view controller de la vista de login.
         let loginViewController = storyBoard.instantiateViewController(withIdentifier: "loginVC")
         present(loginViewController, animated: true, completion: nil)
-        
     }
     
     //Funcion que configura las acciones del gesto en pantalla.

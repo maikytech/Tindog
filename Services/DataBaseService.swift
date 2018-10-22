@@ -6,6 +6,8 @@
 //  Copyright © 2018 PosetoStudio. All rights reserved.
 //
 
+//Singleton for database creation
+
 import Foundation
 import Firebase
 
@@ -36,6 +38,7 @@ class DataBaseService {
         return _User_Ref
     }
     
+    //Funcion que agrega y actualiza la informacion del usuario en la base de datos.
     //El parametro userData es un diccionario con toda la informacion del usuario.
     func createFirebaseDBUser(uid: String, userData: Dictionary<String, Any>) {
         

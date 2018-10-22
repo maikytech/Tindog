@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func closeBtn(_ sender: UIButton) {
         
-        //Descarta la vista modal.
+        //Descarta la vista modal actual.
         dismiss(animated: true, completion: nil)
     }
     
@@ -59,7 +59,6 @@ class LoginViewController: UIViewController {
                                     DataBaseService.instance.createFirebaseDBUser(uid: user.uid, userData: userData)
                                 }
                             }
-                            
                         })
                      
                      //Si el usuario ya existe...
@@ -76,10 +75,8 @@ class LoginViewController: UIViewController {
                                 
                                 self.dismiss(animated: true, completion: nil)
                             }
-                            
                         }
                     )}
-                    
                 }
             }
         }
@@ -122,6 +119,7 @@ class LoginViewController: UIViewController {
     }
     
     //Metodo alternativo.
+    //Cuando el teclado esta en la vista, se cierra si se detecta un toque en cualquier parte de la pantalla.
     //touchesBegan detecta si se produce un toque en la pantalla.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     self.view.endEditing(true);
