@@ -11,7 +11,8 @@ import Firebase
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var emailTextFireld: UITextField!
+    
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var loginCopyLbl: UILabel!
@@ -27,14 +28,14 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginActionBtn(_ sender: UIButton) {
         
-        if (emailTextFireld.text == "" || passwordTextField.text == "") {
+        if (emailTextField.text == "" || passwordTextField.text == "") {
             
             self.showAlert(title: "Error", message: "Ingrese los datos")
             
         }else {
             
             //Unwrap de los campos email y password
-            if let email = self.emailTextFireld.text {
+            if let email = self.emailTextField.text {
                 
                 if let password = self.passwordTextField.text {
                     
@@ -72,7 +73,6 @@ class LoginViewController: UIViewController {
                             }else {
                                 
                                 print("Se hizo Login")
-                                
                                 self.dismiss(animated: true, completion: nil)
                             }
                         }

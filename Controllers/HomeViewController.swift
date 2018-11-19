@@ -13,7 +13,7 @@ import Firebase
 //Se crea esta clase para configurar la imagen del titulo.
 class NavigationImageView: UIImageView {
     
-    //sizeThatFits pregunta a la vista para poder calcular el tamaño que mejor se adapta a ella, su implementacion es por default.
+    //se sobreescribe sizeThatFits, esta funcion pregunta a la vista para poder calcular el tamaño que mejor se adapta a ella, su implementacion es por default.
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         
         return CGSize(width: 76, height: 39)     // 76 y 39 son las medidas del icono en Sketch.
@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var nopeImage: UIImageView!
     
-    let leftBtn = UIButton(type: .custom)       //Boton de acceso al area de Login
+    let leftBtn = UIButton(type: .custom)       //Boton de acceso al area de Login, se crea por codigo.
     
     //Varible para crear el efecto del Launchscreen tipo twitter.
     let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "splash_icon")!, iconInitialSize: CGSize(width: 80, height: 80), backgroundColor: UIColor.white)
@@ -78,10 +78,10 @@ class HomeViewController: UIViewController {
     //Manual creation of Login button
     func buttonLoginConfig(leftBtn: UIButton) {
         
-        //Boton de Login y asociacion del evento modal.
+        //Se crea el contenMode que contendra el boton.
         self.leftBtn.imageView?.contentMode = .scaleAspectFit
         
-        //Creacion del Button Item para poder agregarlo al Navigation Bar.
+        //Creacion del Button Item para poder agregarlo al Navigation Bar en el lado izquierdo.
         let leftBarButton = UIBarButtonItem(customView: self.leftBtn)
         self.navigationItem.leftBarButtonItem = leftBarButton
     }
@@ -92,17 +92,19 @@ class HomeViewController: UIViewController {
             
             //Boton de login en rojo.
             self.leftBtn.setImage(UIImage(named: "login_active"), for: .normal)
-            self.leftBtn.addTarget(self, action: #selector(goToLogin(sender:)), for: .touchUpInside)
+            self.leftBtn.removeTarget(nil, action: nil, for: .allEvents)
+            self.leftBtn.addTarget(self, action: #selector(goToProfile(sender:)), for: .touchUpInside)
             
         }else {
             
             //Boton de login en gris.
             self.leftBtn.setImage(UIImage(named: "login"), for: .normal)
+            self.leftBtn.removeTarget(nil, action: nil, for: .allEvents)
             self.leftBtn.addTarget(self, action: #selector(goToLogin(sender:)), for: .touchUpInside)
         }
     }
     
-    //Configuration of Modal view of Login.
+    //Configuration of modal view of Login.
     @objc func goToLogin(sender: UIButton) {
         
         //Referencia al Main.storyboard
@@ -113,6 +115,15 @@ class HomeViewController: UIViewController {
         let loginViewController = storyBoard.instantiateViewController(withIdentifier: "loginVC")
         present(loginViewController, animated: true, completion: nil)
     }
+    
+    //Configuration of modal view of pofile.
+    @objc func goToProfile(sender: UIButton) {
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profileVC")
+        present(profileViewController, animated: true, completion: nil)
+    }
+    
     
     //Funcion que configura las acciones del gesto en pantalla.
     //@objc es una directiva del compilador, que debe ser utlizada cuando se utlizan clases, protocolos o directivas heredadas de Objective-C, como #selector por ejemplo.
