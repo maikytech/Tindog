@@ -164,44 +164,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mt-kP-VPI">
-                                <rect key="frame" x="133" y="404" width="94" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cerrar Sesion"/>
-                                <connections>
-                                    <action selector="closeProfileBtn:" destination="51l-vh-gnV" eventType="touchUpInside" id="Meb-FZ-UG0"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KsD-dz-XFm">
-                                <rect key="frame" x="60" y="76" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crispeta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeU-J3-ySH">
-                                <rect key="frame" x="140" y="267" width="94" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="crispeta@platzi.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiG-p6-K3N">
-                                <rect key="frame" x="109" y="344" width="156" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-Be-6CB">
-                                <rect key="frame" x="60" y="480" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kaY-u0-CWH">
+                                <rect key="frame" x="60" y="50" width="255" height="340"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crispy_head" translatesAutoresizingMaskIntoConstraints="NO" id="KsD-dz-XFm">
+                                        <rect key="frame" x="37.5" y="0.0" width="180" height="180"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="G2H-EQ-2dF"/>
+                                            <constraint firstAttribute="height" constant="180" id="uzI-Z4-0sf"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crispeta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeU-J3-ySH">
+                                        <rect key="frame" x="97.5" y="200" width="60" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="crispeta@platzi.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiG-p6-K3N">
+                                        <rect key="frame" x="64.5" y="238.5" width="126.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mt-kP-VPI">
+                                        <rect key="frame" x="0.0" y="275" width="255" height="65"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                        <state key="normal" title="Cerrar Sesion" backgroundImage="login_btn_bg">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeProfileBtn:" destination="51l-vh-gnV" eventType="touchUpInside" id="Meb-FZ-UG0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_bg" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-Be-6CB">
+                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jed-Ep-IAq" firstAttribute="trailing" secondItem="zaT-Be-6CB" secondAttribute="trailing" id="1Rn-pc-sNo"/>
+                            <constraint firstItem="zaT-Be-6CB" firstAttribute="bottom" secondItem="jed-Ep-IAq" secondAttribute="bottom" id="Sox-jH-PwH"/>
+                            <constraint firstItem="kaY-u0-CWH" firstAttribute="leading" secondItem="jed-Ep-IAq" secondAttribute="leading" constant="60" id="ZxV-aH-CKz"/>
+                            <constraint firstItem="kaY-u0-CWH" firstAttribute="top" secondItem="jed-Ep-IAq" secondAttribute="top" constant="30" id="eVn-ns-43E"/>
+                            <constraint firstItem="jed-Ep-IAq" firstAttribute="trailing" secondItem="kaY-u0-CWH" secondAttribute="trailing" constant="60" id="fbC-ZP-eNg"/>
+                            <constraint firstItem="zaT-Be-6CB" firstAttribute="centerX" secondItem="cp1-Xs-lVY" secondAttribute="centerX" id="kgB-0m-xU5"/>
+                            <constraint firstItem="zaT-Be-6CB" firstAttribute="top" secondItem="jed-Ep-IAq" secondAttribute="bottom" id="lOv-5L-8Fx"/>
+                            <constraint firstItem="zaT-Be-6CB" firstAttribute="leading" secondItem="jed-Ep-IAq" secondAttribute="leading" id="qsG-V8-owp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jed-Ep-IAq"/>
                     </view>
+                    <connections>
+                        <outlet property="profileDisplayNameLbl" destination="CeU-J3-ySH" id="rHC-UQ-Qc7"/>
+                        <outlet property="profileEmailLbl" destination="jiG-p6-K3N" id="Brb-Oi-G5j"/>
+                        <outlet property="profileImage" destination="KsD-dz-XFm" id="WNl-hk-6e1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AW6-6C-NuE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1752.8" y="497.90104947526243"/>
+            <point key="canvasLocation" x="1666" y="495"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Zrb-HH-Im7">
@@ -405,9 +427,11 @@
         <image name="Swipe Card" width="356" height="507"/>
         <image name="close_modal" width="23" height="23"/>
         <image name="crispeta" width="1080" height="1079"/>
+        <image name="crispy_head" width="460.79998779296875" height="388.07998657226562"/>
         <image name="like_image" width="170" height="114"/>
         <image name="login_btn_bg" width="256" height="65"/>
         <image name="nope_image" width="197" height="130"/>
+        <image name="profile_bg" width="375" height="667"/>
         <image name="splash_icon" width="60" height="60"/>
     </resources>
 </document>

@@ -10,6 +10,7 @@
 		1C0DA9DD479B11F96CBDE725 /* Pods_Tindog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB358DDC04CA8B3C2E990996 /* Pods_Tindog.framework */; };
 		6538C55F2173E32E00B8859D /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6538C55E2173E32E00B8859D /* DataBaseService.swift */; };
 		653C4A0B215526500071F717 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653C4A0A215526500071F717 /* HomeViewController.swift */; };
+		656218B921A369CF002912AB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656218B821A369CF002912AB /* UserModel.swift */; };
 		657DC04E2162FA2300B254A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DC04D2162FA2300B254A7 /* LoginViewController.swift */; };
 		65869F3E216EC42D00C5F274 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65869F3D216EC42D00C5F274 /* UIViewExt.swift */; };
 		65869F40216F036C00C5F274 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65869F3F216F036C00C5F274 /* GoogleService-Info.plist */; };
@@ -24,6 +25,7 @@
 		550E064E9803ADAFADC41604 /* Pods-Tindog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tindog.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tindog/Pods-Tindog.release.xcconfig"; sourceTree = "<group>"; };
 		6538C55E2173E32E00B8859D /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		653C4A0A215526500071F717 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		656218B821A369CF002912AB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		657DC04D2162FA2300B254A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		65869F3D216EC42D00C5F274 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		65869F3F216F036C00C5F274 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		656218B721A369AE002912AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				656218B821A369CF002912AB /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		65869F3C216EC3DF00C5F274 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +97,7 @@
 		65C5EC7521533134006A0F42 = {
 			isa = PBXGroup;
 			children = (
+				656218B721A369AE002912AB /* Models */,
 				6538C55D2173E31600B8859D /* Services */,
 				65869F3C216EC3DF00C5F274 /* Extensions */,
 				653C4A0921549F210071F717 /* Controllers */,
@@ -245,6 +256,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -253,6 +265,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -269,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65DE0BEB217E88B900A00FFA /* ProfileViewController.swift in Sources */,
+				656218B921A369CF002912AB /* UserModel.swift in Sources */,
 				65869F3E216EC42D00C5F274 /* UIViewExt.swift in Sources */,
 				657DC04E2162FA2300B254A7 /* LoginViewController.swift in Sources */,
 				65C5EC8221533135006A0F42 /* AppDelegate.swift in Sources */,

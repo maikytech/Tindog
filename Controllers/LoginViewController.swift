@@ -20,6 +20,16 @@ class LoginViewController: UIViewController {
     
     var registerMode = true
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.bindKeyboard()    //Activa la animacion de subir la vista unos frames mientras el teclado este presente.
+        
+        //        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        //        self.view.addGestureRecognizer(tap)
+        
+    }
+    
     @IBAction func closeBtn(_ sender: UIButton) {
         
         //Descarta la vista modal actual.
@@ -56,7 +66,7 @@ class LoginViewController: UIViewController {
                                     
                                     let userData = ["provider":user.providerID, "email":user.email!, "profileImage":"https://i.imgur.com/GbKyVIP.jpg", "displayName":"Crispeta"] as [String:Any]
                                     
-                                    //Llamamos al singleton.
+                                    //Llamamos al singleton de la base de datos.
                                     DataBaseService.instance.createFirebaseDBUser(uid: user.uid, userData: userData)
                                 }
                             }
@@ -82,6 +92,14 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //Funcion que crea una alerta.
+    func showAlert(title: String, message: String) {
+        
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertView, animated: true, completion: nil)
+    }
+    
     @IBAction func subLoginActionBtn(_ sender: UIButton) {
        
         //Si estamos en modo registro, al hacer click en Login ingresamos al modo Login.
@@ -98,24 +116,6 @@ class LoginViewController: UIViewController {
             self.subLoginBtn.setTitle("Login", for: .normal)
             self.registerMode = true
         }
-    }
-    
-    //Funcion que crea una alerta.
-    func showAlert(title: String, message: String) {
-        
-        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertView.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertView, animated: true, completion: nil)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.view.bindKeyboard()    //Activa la animacion de subir la vista unos frames mientras el teclado este presente.
-        
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
-//        self.view.addGestureRecognizer(tap)
-        
     }
     
     //Metodo alternativo.

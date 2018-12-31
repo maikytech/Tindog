@@ -14,9 +14,9 @@ import Firebase
 //Referencia dinamica al nodo principal de mi base de datos.
 let DB_BASE_ROOT = Database.database().reference()
 
-//Uso de una constante estatica para adoptar el patron Singleton.
 class DataBaseService {
     
+    //Uso de una constante estatica para adoptar el patron Singleton.
     static let instance = DataBaseService()
     
     //Referencia privada al nodo principal.
@@ -46,4 +46,27 @@ class DataBaseService {
         User_Ref.child(uid).updateChildValues(userData)
     }
     
+    //Funcion que consulta el perfil del usuario y verifica si existen cambios en el perfil.
+    //los closure tipo @escaping se ejecutan asincronicamente, es decir, cuando la funcion ya esta retornando los valores finales o por fuera de la funcion.
+    //El handler retorna un objeto de tipo UserModel.
+    func observeUserProfile(handler: @escaping(_ userProfileDict: UserModel?) -> Void){
+        
+        //Accedemos al usuario actual.
+        if let currentUser = Auth.auth().currentUser {
+            
+            //Se crea una instancia de clase el cual es el singleton, para acceder al nodo de usuarios y a su vez al uid.
+            //observe es una funcion que se utiliza para "observar" cambios en un determinado nodo de la base de datos.
+            //El parametro .value significa que observe escuchara cualquier cambio.
+            //El siguiente parametro es un closure que nos retorna la informacion del usuario a traves de la variable snapshot.
+            DataBaseService.instance.User_Ref.child(currentUser.uid).observe(.value, with: {(snapshot) in
+                
+                //Se parsean los datos del snapshot en userDict, y los casteamos a tipos de datos UserModel llamando al constructor de la estructura.
+                if let userDict = UserModel(snapshot: snapshot) {
+                    
+                    //Se llama al handler con la informacion recopilada en userDict.
+                    handler(userDict)
+                }
+            })
+        }
+    }
 }
