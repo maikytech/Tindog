@@ -25,7 +25,7 @@ struct UserModel {
         let uid = snapshot.key
         
         //Condicional tipo guard, permite utilizar las variables locales fuera del condicional.
-        
+        //Si alguna variable dentro del guard no se puede asignar por alguna razon, a traves del else, le asignamos el valor nil a esa variable.
         //dic es un diccionario que recibe la info de los usuarios de la variable snapshot
         guard let dic = snapshot.value as? [String: String],
             let email = dic["email"] as? String,

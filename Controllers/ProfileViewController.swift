@@ -36,6 +36,9 @@ class ProfileViewController: UIViewController {
         
         //Corta las esquinas sobrantes.
         self.profileImage.clipsToBounds = true
+        
+        self.profileDisplayNameLbl.text = currentUserProfile?.displayName
+        self.profileEmailLbl.text = currentUserProfile?.email
     }
     
     @IBAction func closeProfileBtn(_ sender: Any) {

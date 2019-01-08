@@ -60,8 +60,6 @@ class LoginViewController: UIViewController {
                                 self.showAlert(title: "Error", message: error!.localizedDescription)
                             }else {
                                 
-                                print("La cuenta fue creada exitosamente")
-                                
                                 if let user = user {
                                     
                                     let userData = ["provider":user.providerID, "email":user.email!, "profileImage":"https://i.imgur.com/GbKyVIP.jpg", "displayName":"Crispeta"] as [String:Any]
@@ -82,7 +80,6 @@ class LoginViewController: UIViewController {
                                 self.showAlert(title: "Error", message: error!.localizedDescription)
                             }else {
                                 
-                                print("Se hizo Login")
                                 self.dismiss(animated: true, completion: nil)
                             }
                         }

@@ -178,18 +178,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    //Configuration of modal view of Login.
-    @objc func goToLogin(sender: UIButton) {
-        
-        //Referencia al Main.storyboard
-        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        //instantiateViewController instancia la vista cuyo identificador es loginVC y lo presenta modalmente.
-        //LoginVC es el ID del view controller de la vista de login.
-        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "loginVC")
-        present(loginViewController, animated: true, completion: nil)
-    }
-    
     //Configuration of modal view of pofile.
     @objc func goToProfile(sender: UIButton) {
         
@@ -200,5 +188,17 @@ class HomeViewController: UIViewController {
         //self.currentUserProfile es la variable declarada en HomeViewController.
         profileViewController.currentUserProfile = self.currentUserProfile
         present(profileViewController, animated: true, completion: nil)
+    }
+    
+    //Configuration of modal view of Login.
+    @objc func goToLogin(sender: UIButton) {
+        
+        //Referencia al Main.storyboard
+        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        //instantiateViewController instancia la vista cuyo identificador es loginVC y lo presenta modalmente.
+        //LoginVC es el ID del view controller de la vista de login.
+        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "loginVC")
+        present(loginViewController, animated: true, completion: nil)
     }
 }
