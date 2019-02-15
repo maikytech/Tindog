@@ -16,7 +16,7 @@ class NavigationImageView: UIImageView {
     //se sobreescribe sizeThatFits, esta funcion pregunta a la vista para poder calcular el tamaño que mejor se adapta a ella, su implementacion es por default.
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         
-        return CGSize(width: 76, height: 39)     // 76 y 39 son las medidas del icono en Sketch.
+        return CGSize(width: 76, height: 39)     // 76 y 39 son las medidas del icono en Sketch..
     }
 }
 
