@@ -7,16 +7,15 @@
 //
 
 import UIKit
-import RevealingSplashView          //Libreria para la configuracion del LaunchScreen tipo twitter.
+import RevealingSplashView          //A Splash view that animates and reveals its content, inspired by the Twitter splash.
 import Firebase
 
-//Se crea esta clase para configurar la imagen del titulo.
+//Class to configure the Image tittle.
 class NavigationImageView: UIImageView {
     
-    //se sobreescribe sizeThatFits, esta funcion pregunta a la vista para poder calcular el tamaño que mejor se adapta a ella, su implementacion es por default.
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         
-        return CGSize(width: 76, height: 39)     // 76 y 39 son las medidas del icono en Sketch..
+        return CGSize(width: 76, height: 39)
     }
 }
 
@@ -27,11 +26,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var nopeImage: UIImageView!
     
-    let leftBtn = UIButton(type: .custom)       //Boton de acceso al area de Login, se crea por codigo.
-    
-    //Varible para crear el efecto del Launchscreen tipo twitter.
+    let loginButton = UIButton(type: .custom)
     let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "splash_icon")!, iconInitialSize: CGSize(width: 80, height: 80), backgroundColor: UIColor.white)
-    
     var currentUserProfile: UserModel?
     
     override func viewDidLoad() {
@@ -40,7 +36,7 @@ class HomeViewController: UIViewController {
         self.launchScreenConfig(revealingSplashView: revealingSplashView)
         self.tittleViewConfig()
         self.UIGestureConfig()
-        self.buttonLoginConfig(leftBtn: leftBtn)
+        self.buttonLoginConfig(leftBtn: loginButton)
         self.observeData()
     }
     
@@ -135,11 +131,11 @@ class HomeViewController: UIViewController {
     func buttonLoginConfig(leftBtn: UIButton) {
         
         //Se crea el contenMode que contendra el boton.
-        self.leftBtn.imageView?.contentMode = .scaleAspectFit
+        self.loginButton.imageView?.contentMode = .scaleAspectFit
         
         //Creacion del Button Item para poder agregarlo al Navigation Bar en el lado izquierdo.
         //UIBarButtonItem is a button specialized for placement on a toolbar or tab bar.
-        let leftBarButton = UIBarButtonItem(customView: self.leftBtn)
+        let leftBarButton = UIBarButtonItem(customView: self.loginButton)
         self.navigationItem.leftBarButtonItem = leftBarButton
     }
     
@@ -157,7 +153,7 @@ class HomeViewController: UIViewController {
     //Funcion de configuracion cuando esta vista vuelve a ser la vista principal.
     override func viewDidAppear(_ animated: Bool) {
         
-        loginModalViewConfig(leftBtn: leftBtn)
+        loginModalViewConfig(leftBtn: loginButton)
     }
     
     func loginModalViewConfig(leftBtn: UIButton) {
@@ -165,16 +161,16 @@ class HomeViewController: UIViewController {
         if Auth.auth().currentUser != nil {
             
             //Boton de login en rojo.
-            self.leftBtn.setImage(UIImage(named: "login_active"), for: .normal)
-            self.leftBtn.removeTarget(nil, action: nil, for: .allEvents)
-            self.leftBtn.addTarget(self, action: #selector(goToProfile(sender:)), for: .touchUpInside)
+            self.loginButton.setImage(UIImage(named: "login_active"), for: .normal)
+            self.loginButton.removeTarget(nil, action: nil, for: .allEvents)
+            self.loginButton.addTarget(self, action: #selector(goToProfile(sender:)), for: .touchUpInside)
             
         }else {
             
             //Boton de login en gris.
-            self.leftBtn.setImage(UIImage(named: "login"), for: .normal)
-            self.leftBtn.removeTarget(nil, action: nil, for: .allEvents)
-            self.leftBtn.addTarget(self, action: #selector(goToLogin(sender:)), for: .touchUpInside)
+            self.loginButton.setImage(UIImage(named: "login"), for: .normal)
+            self.loginButton.removeTarget(nil, action: nil, for: .allEvents)
+            self.loginButton.addTarget(self, action: #selector(goToLogin(sender:)), for: .touchUpInside)
         }
     }
     

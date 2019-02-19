@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-//Estructura para el manejo de la informacion del usuario.
+//Model to control user data.
 
 struct UserModel {
     
@@ -19,14 +19,11 @@ struct UserModel {
     let profileImage: String
     let displayName: String
     
-    //Un objeto de tipo DataSnapshot es una instantanea de los usuarios con la informacion que se tiene en la base de datos de Firebase.
+    //DataSnapshot object return a snapshot of database.
     init?(snapshot: DataSnapshot){
         
         let uid = snapshot.key
         
-        //Condicional tipo guard, permite utilizar las variables locales fuera del condicional.
-        //Si alguna variable dentro del guard no se puede asignar por alguna razon, a traves del else, le asignamos el valor nil a esa variable.
-        //dic es un diccionario que recibe la info de los usuarios de la variable snapshot
         guard let dic = snapshot.value as? [String: String],
             let email = dic["email"] as? String,
             let provider = dic["provider"] as? String,
@@ -35,7 +32,6 @@ struct UserModel {
         
         else {
             
-                //Retorna nil para que el objeto no quede incompleto en caso de que falte algun dato.
                 return nil
         }
         
@@ -44,6 +40,5 @@ struct UserModel {
         self.provider = provider
         self.profileImage = profileImage
         self.displayName = displayName
-        
     }
 }
