@@ -26,17 +26,11 @@ class ProfileViewController: UIViewController {
     
     func profileImageConfig() {
         
-        //Genera un cuadro con la puntas redondeadas de acuerdo al radio, en este caso, sera un circulo.
+        
         self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.height / 2
-        
-        //cgColor es el tipo de color a nivel de layer.
         self.profileImage.layer.borderColor = UIColor.white.cgColor
-        
         self.profileImage.layer.borderWidth = 1.0
-        
-        //Corta las esquinas sobrantes.
         self.profileImage.clipsToBounds = true
-        
         self.profileDisplayNameLbl.text = currentUserProfile?.displayName
         self.profileEmailLbl.text = currentUserProfile?.email
     }

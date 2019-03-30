@@ -31,8 +31,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func closeBtn(_ sender: UIButton) {
-        
-        //Descarta la vista modal actual.
+    
         dismiss(animated: true, completion: nil)
     }
     
@@ -44,15 +43,12 @@ class LoginViewController: UIViewController {
             
         }else {
             
-            //Unwrap de los campos email y password
             if let email = self.emailTextField.text {
                 
                 if let password = self.passwordTextField.text {
                     
-                    //Si estoy en modo registro..
                     if registerMode {
                         
-                        //Auth maneja la autentificacion en Firebase.
                         Auth.auth().createUser(withEmail: email, password: password, completion: {(user, error) in
                             
                             if error != nil {
@@ -64,13 +60,11 @@ class LoginViewController: UIViewController {
                                     
                                     let userData = ["provider":user.providerID, "email":user.email!, "profileImage":"https://i.imgur.com/GbKyVIP.jpg", "displayName":"Crispeta"] as [String:Any]
                                     
-                                    //Llamamos al singleton de la base de datos.
                                     DataBaseService.instance.createFirebaseDBUser(uid: user.uid, userData: userData)
                                 }
                             }
                         })
                      
-                     //Si el usuario ya existe...
                     }else {
                         
                         Auth.auth().signIn(withEmail: email, password: password, completion: {(user, error) in
@@ -89,7 +83,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    //Funcion que crea una alerta.
     func showAlert(title: String, message: String) {
         
         let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -99,7 +92,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func subLoginActionBtn(_ sender: UIButton) {
        
-        //Si estamos en modo registro, al hacer click en Login ingresamos al modo Login.
         if self.registerMode {
             
             self.loginBtn.setTitle("Login", for: .normal)
