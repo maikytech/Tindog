@@ -107,9 +107,9 @@ class HomeViewController: UIViewController {
     
     func observeData() {
         
-        DataBaseService.instance.observeUserProfile {(UserDic) in
+        DataBaseService.instance.observeUserProfile {(UserDict) in
             
-            self.currentUserProfile = UserDic
+            self.currentUserProfile = UserDict
         }
     }
     
@@ -140,7 +140,8 @@ class HomeViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profileVC") as! ProfileViewController
         profileViewController.currentUserProfile = self.currentUserProfile
-        present(profileViewController, animated: true, completion: nil)
+        //present(profileViewController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
     //Configuration of modal view of Login.

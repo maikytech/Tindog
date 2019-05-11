@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 class ProfileViewController: UIViewController {
     
@@ -25,6 +26,8 @@ class ProfileViewController: UIViewController {
     }
     
     func profileImageConfig() {
+        
+        self.profileImage.sd_setImage(with: URL(string: (self.currentUserProfile?.profileImage)!), completed: nil)
         
         
         self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.height / 2
