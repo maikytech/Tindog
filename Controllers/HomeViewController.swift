@@ -140,8 +140,8 @@ class HomeViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profileVC") as! ProfileViewController
         profileViewController.currentUserProfile = self.currentUserProfile
-        //present(profileViewController, animated: true, completion: nil)
-        self.navigationController?.pushViewController(profileViewController, animated: true)
+        present(profileViewController, animated: true, completion: nil)
+        //self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
     //Configuration of modal view of Login.

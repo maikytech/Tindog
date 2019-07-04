@@ -21,7 +21,6 @@ class DataBaseService {
 
     var Base_Ref : DatabaseReference {
         
-        
         return _Base_Ref
     }
     
@@ -32,16 +31,14 @@ class DataBaseService {
     
     func createFirebaseDBUser(uid: String, userData: Dictionary<String, Any>) {
         
-        
         User_Ref.child(uid).updateChildValues(userData)
     }
     
+    //Observe change in DB
     func observeUserProfile(handler: @escaping(_ userProfileDict: UserModel?) -> Void){
-        
         
         if let currentUser = Auth.auth().currentUser {
             
- 
             DataBaseService.instance.User_Ref.child(currentUser.uid).observe(.value, with: {(snapshot) in
                 
                 if let userDict = UserModel(snapshot: snapshot) {
