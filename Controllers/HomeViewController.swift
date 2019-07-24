@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
     let loginButton = UIButton(type: .custom)
     let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "splash_icon")!, iconInitialSize: CGSize(width: 80, height: 80), backgroundColor: UIColor.white)
     var currentUserProfile: UserModel?
+    var users = [UserModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,9 +108,21 @@ class HomeViewController: UIViewController {
     
     func observeData() {
         
-        DataBaseService.instance.observeUserProfile {(userDict) in
+        //Listens if the user login or logout.
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                print("El usuario inicio correctamente")
+            }else{
+                print("Logout")
+            }
             
-            self.currentUserProfile = userDict
+            //observer starts listening when the user or the database has changes
+            DataBaseService.instance.observeUserProfile {(userDict) in
+                self.currentUserProfile = userDict
+                
+            }
+            
+            self.getUsers()
         }
     }
     
@@ -150,5 +163,24 @@ class HomeViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let loginViewController = storyBoard.instantiateViewController(withIdentifier: "loginVC")
         present(loginViewController, animated: true, completion: nil)
+    }
+    
+    func getUsers() {
+        
+        //Observe any change just one time
+        DataBaseService.instance.User_Ref.observeSingleEvent(of: .value) { (snapshot) in
+            
+            //The first element of the snapshot is accessed.
+            let userSnapshot = snapshot.children.compactMap{UserModel(snapshot: $0 as! DataSnapshot)}
+            
+            if userSnapshot.count > 0 {
+                
+                for user in userSnapshot{
+                    
+                    print("Los usuarios son: \(user.email)")
+                    self.users.append(user)
+                }
+            }
+        }
     }
 }

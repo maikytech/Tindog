@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func closeBtn(_ sender: UIButton) {
-    
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -47,6 +47,7 @@ class LoginViewController: UIViewController {
                 
                 if let password = self.passwordTextField.text {
                     
+                    //A new user is created in the database.
                     if registerMode {
                         
                         Auth.auth().createUser(withEmail: email, password: password, completion: {(user, error) in
@@ -58,6 +59,7 @@ class LoginViewController: UIViewController {
                                 
                                 if let user = user {
                                     
+                                    
                                     let userData = ["provider":user.providerID, "email":user.email!, "profileImage":"https://i.imgur.com/GbKyVIP.jpg", "displayName":"Crispeta"] as [String:Any]
                                     
                                     DataBaseService.instance.createFirebaseDBUser(uid: user.uid, userData: userData)
@@ -67,6 +69,7 @@ class LoginViewController: UIViewController {
                      
                     }else {
                         
+                        //If the user exits, login.
                         Auth.auth().signIn(withEmail: email, password: password, completion: {(user, error) in
                             
                             if error != nil {

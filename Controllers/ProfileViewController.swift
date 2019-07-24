@@ -28,8 +28,6 @@ class ProfileViewController: UIViewController {
     func profileImageConfig() {
         
         self.profileImage.sd_setImage(with: URL(string: (self.currentUserProfile?.profileImage)!), completed: nil)
-        
-        
         self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.height / 2
         self.profileImage.layer.borderColor = UIColor.white.cgColor
         self.profileImage.layer.borderWidth = 1.0
@@ -41,6 +39,12 @@ class ProfileViewController: UIViewController {
     @IBAction func closeProfileBtn(_ sender: Any) {
         
         try! Auth.auth().signOut()
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func ImportUsersAction(_ sender: UIButton) {
+        
+        
     }
 }
