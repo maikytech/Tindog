@@ -50,7 +50,7 @@
                                                 </constraints>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nope_image" translatesAutoresizingMaskIntoConstraints="NO" id="cW0-dL-pbr">
-                                                <rect key="frame" x="168" y="25" width="158" height="70"/>
+                                                <rect key="frame" x="168" y="25" width="158.00000000000006" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="5we-ia-qeA"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="6QK-3A-BYw"/>
@@ -92,31 +92,31 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="351" height="68"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ex8-7p-Vfn">
-                                                        <rect key="frame" x="0.0" y="25" width="16" height="18"/>
+                                                        <rect key="frame" x="0.0" y="8.5" width="51" height="51"/>
                                                         <state key="normal" backgroundImage="Rewind">
                                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUt-9L-hFI">
-                                                        <rect key="frame" x="84" y="25" width="16" height="18"/>
+                                                        <rect key="frame" x="69" y="2.5" width="63" height="63"/>
                                                         <state key="normal" backgroundImage="Nope">
                                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSc-n6-tY8">
-                                                        <rect key="frame" x="167.5" y="25" width="16" height="18"/>
+                                                        <rect key="frame" x="150" y="8.5" width="51" height="51"/>
                                                         <state key="normal" backgroundImage="Boost">
                                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyn-Pl-ScT">
-                                                        <rect key="frame" x="251.5" y="25" width="16" height="18"/>
+                                                        <rect key="frame" x="219" y="2.5" width="63" height="63"/>
                                                         <state key="normal" backgroundImage="Like">
                                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTf-5b-ya7">
-                                                        <rect key="frame" x="335" y="25" width="16" height="18"/>
+                                                        <rect key="frame" x="300" y="8.5" width="51" height="51"/>
                                                         <state key="normal" backgroundImage="Super Like">
                                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -146,6 +146,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="q6o-X2-Quk"/>
                     <connections>
+                        <outlet property="cardProfileImage" destination="IBF-Fc-1jI" id="QRh-Gk-Ht9"/>
+                        <outlet property="cardProfileName" destination="dB6-fd-QqA" id="pZI-mJ-mnc"/>
                         <outlet property="cardView" destination="uRF-wZ-7J0" id="hjk-ha-J6M"/>
                         <outlet property="homeWrapper" destination="DIH-MD-2YK" id="c4K-TT-heN"/>
                         <outlet property="likeImage" destination="gFW-9D-oSh" id="jZU-vI-hf3"/>

@@ -19,6 +19,7 @@
 		65C5EC8921533136006A0F42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65C5EC8821533136006A0F42 /* Assets.xcassets */; };
 		65C5EC8C21533136006A0F42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C5EC8A21533136006A0F42 /* LaunchScreen.storyboard */; };
 		65DE0BEB217E88B900A00FFA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE0BEA217E88B900A00FFA /* ProfileViewController.swift */; };
+		65ED4F3022FE22E90098B041 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ED4F2F22FE22E90098B041 /* MatchModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		65C5EC8B21533136006A0F42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65C5EC8D21533136006A0F42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65DE0BEA217E88B900A00FFA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		65ED4F2F22FE22E90098B041 /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
 		B1F9EAD15F960EFDDA08BB4A /* Pods-Tindog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tindog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tindog/Pods-Tindog.debug.xcconfig"; sourceTree = "<group>"; };
 		DB358DDC04CA8B3C2E990996 /* Pods_Tindog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tindog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				656218B821A369CF002912AB /* UserModel.swift */,
+				65ED4F2F22FE22E90098B041 /* MatchModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65DE0BEB217E88B900A00FFA /* ProfileViewController.swift in Sources */,
+				65ED4F3022FE22E90098B041 /* MatchModel.swift in Sources */,
 				656218B921A369CF002912AB /* UserModel.swift in Sources */,
 				65869F3E216EC42D00C5F274 /* UIViewExt.swift in Sources */,
 				657DC04E2162FA2300B254A7 /* LoginViewController.swift in Sources */,
