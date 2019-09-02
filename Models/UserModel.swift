@@ -25,12 +25,15 @@ struct UserModel {
         
         let uid = snapshot.key
         
-        guard let dic = snapshot.value as? [String: String],
+        guard let dic = snapshot.value as? [String:Any],
             let email = dic["email"] as? String,
             let provider = dic["provider"] as? String,
             let profileImage = dic["profileImage"] as? String,
             let displayName = dic["displayName"] as? String,
-            let usersIsOnMatch = dic["usersIsOnMatch"] as? Bool else {
+            let usersIsOnMatch = dic["userIsOnMatch"] as? Bool
+            
+            else {
+            
                 return nil
         }
         

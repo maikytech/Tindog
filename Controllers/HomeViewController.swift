@@ -155,6 +155,11 @@ class HomeViewController: UIViewController {
             
             self.getUsers()
         }
+        
+        UpdateDBService.instance.observeMatch { (matchDict) in
+            
+            print("Update match")
+        }
     }
     
     func getUsers() {
